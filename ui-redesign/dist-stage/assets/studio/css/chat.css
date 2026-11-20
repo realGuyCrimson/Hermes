@@ -51,6 +51,7 @@ pre.out{margin:2px 0 6px 22px;padding:9px 11px;background:var(--sunk);border-rad
 .appr.done{border-color:transparent;padding:0;background:transparent}
 .ahead{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--muted)} .ahead b{color:var(--text);font-size:14px;font-weight:700}
 pre.cmd{margin:0;padding:12px 14px;background:var(--sunk);border-radius:var(--r-card);font:12.5px/1.6 var(--mono);white-space:pre-wrap;overflow:auto}
+pre.cmd.failed{color:var(--negative)}
 .awhy{margin:0;font-size:13px;color:var(--muted)} .awhy code{font-family:var(--mono);font-size:.92em}
 .aact{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .omore{border:0;background:transparent;color:var(--muted);font-size:13px;padding:8px 2px;transition:color var(--t-mid) var(--ease)} .omore:hover{color:var(--text)}

@@ -3,7 +3,8 @@
 const H = window.H, h = H.h;
 const LIVE = H.live;
 const TABS = [['changes','Changes'],['plan','Plan'],['files','Files'],['shell','Shell'],['browser','Browser'],['context','Context'],['terminal','Terminal']];
-function liveTabs(){ return TABS.filter(([id]) => id!=='changes' && id!=='browser'); }
+/* Live mode has no browser pane (Hermes has none); Changes is real now. */
+function liveTabs(){ return TABS.filter(([id]) => id!=='browser'); }
 
 function diffBlock(lines){ return h('pre.diff', ...lines.map(([t,c]) => h('span.dl.'+c, t+'\n'))); }
 const FILES = [
@@ -207,17 +208,339 @@ function liveShell(go){
   return w;
 }
 
+/* ---------- live Changes tab: real git (web_git routers) + session checkpoints ----------
+   Shapes reused from the Desktop review pane (apps/desktop/src/app/right-sidebar/review):
+   /api/git/status -> {branch,defaultBranch,detached,ahead,behind,changed,added,removed,files[]}
+   /api/git/review/list -> {files:[{path,added,removed,status,staged}],base}
+   /api/git/review/diff -> {diff}; stage/unstage/revert/commit/push -> {ok} (400 on failure).
+   Checkpoints ride the session gateway: rollback.list / rollback.diff / rollback.restore. */
+const enc = v => encodeURIComponent(v || '');
+
+async function liveCwd(t){
+  if (H.liveThread && H.liveThread.cwd) return H.liveThread.cwd;
+  const id = t && t.id && t.id !== 'new' ? t.id : '';
+  if (!id) return '';
+  try { const s = await H.api.get('/api/sessions/' + enc(id)); return (s && s.cwd) || ''; } catch (e) { return ''; }
+}
+
+function diffClass(line){
+  if (line.startsWith('@@') || line.startsWith('+++') || line.startsWith('---')) return 'h';
+  if (/^(diff --git|index |new file|deleted file|old mode|new mode|similarity|dissimilarity|rename |copy |\\ )/.test(line)) return 'm';
+  if (line.startsWith('+')) return 'a';
+  if (line.startsWith('-')) return 'd';
+  return 'c';
+}
+function liveDiff(text){
+  const src = String(text == null ? '' : text);
+  if (!src.trim()) return null;
+  const lines = src.replace(/\n+$/, '').split('\n');
+  return h('pre.diff', ...lines.map(l => h('span.dl.' + diffClass(l), l + '\n')));
+}
+function fmtWhen(ts){
+  const d = new Date(ts);
+  if (!ts || isNaN(d.getTime())) return String(ts || '');
+  return d.toLocaleString(undefined, {month:'short', day:'numeric', hour:'2-digit', minute:'2-digit'});
+}
+function confirmAsk(title, body, label, run){
+  const box = h('div.chg-confirm', h('h3', title), h('p.muted', body));
+  const row = h('div.chg-confirm-row');
+  const m = H.modal(box, {width:420});
+  const cancel = h('button.btn.sm', {onclick:()=>m.close()}, 'Cancel');
+  const go = h('button.btn.sm.danger', {onclick:()=>{ m.close(); run(); }}, label);
+  row.append(h('span.grow'), cancel, go); box.append(row);
+  return m;
+}
+
+function liveChanges(t){
+  const w = h('div.ib.chg');
+  const top = h('div.chg-top');
+  const scopeRow = h('div.chg-scope');
+  const list = h('div.chg-list');
+  const actBox = h('div.chg-actbox');
+  const cpBox = h('div.chg-cps');
+  w.append(top, scopeRow, list, actBox, cpBox);
+  top.hidden = true; scopeRow.hidden = true;
+
+  const sid = t && t.id && t.id !== 'new' ? t.id : '';
+  let cwd = '', scope = 'uncommitted', status = null, rows = [], base = null, upstream = false;
+  let msg = '', busy = false, seq = 0;
+
+  const note = (box, text, retry) => box.replaceChildren(h('div.chg-note', h('span', text), retry ? h('button.btn.sm', {onclick:retry}, 'Retry') : null));
+
+  /* ---- git ---- */
+  async function load(){
+    const my = ++seq;
+    top.hidden = true; scopeRow.hidden = true;
+    actBox.replaceChildren();
+    note(list, 'Loading this folder…');
+    try {
+      if (!cwd) cwd = await liveCwd(t);
+      if (my !== seq) return;
+      if (!cwd) { notRepo('This thread reports no working directory, so there is nothing to review or commit.'); return; }
+      status = await H.api.get('/api/git/status?path=' + enc(cwd));
+      if (my !== seq) return;
+      if (!status) { notRepo('This folder is not a git repository, so there are no changes to review or commit.'); return; }
+      const res = await H.api.get('/api/git/review/list?path=' + enc(cwd) + '&scope=' + enc(scope));
+      if (my !== seq) return;
+      rows = (res && res.files) || []; base = (res && res.base) || null;
+      upstream = status.ahead > 0 || status.behind > 0;
+      if (scope === 'uncommitted' && status.branch) {
+        try {
+          const br = await H.api.get('/api/git/branches?path=' + enc(cwd));
+          /* No REST field says "upstream": a remote-tracking ref for this branch is the
+             closest signal the status endpoints give (plus ahead/behind above). */
+          const b = String(status.branch);
+          if ((br && br.branches || []).some(r => r && r.isRemote && String(r.name || '').endsWith('/' + b))) upstream = true;
+        } catch (e) { /* upstream is a hint only: fall back to ahead/behind */ }
+        if (my !== seq) return;
+      }
+      drawGit();
+    } catch (e) {
+      if (my !== seq) return;
+      top.hidden = true; scopeRow.hidden = true; actBox.replaceChildren();
+      note(list, 'Couldn’t load changes: ' + e.message, load);
+    }
+  }
+
+  function notRepo(text){
+    top.replaceChildren();
+    top.append(h('div.chg-sum', h('span.pill.warn', 'Not a git repository')));
+    top.hidden = false;
+    scopeRow.hidden = true; actBox.replaceChildren();
+    list.replaceChildren(h('div.chg-empty', h('p', text), h('p.muted', cwd ? 'Checkpoints below still work: Hermes snapshots the folder itself, not git.' : '')));
+    loadCheckpoints();
+  }
+
+  function drawGit(){
+    top.replaceChildren();
+    const tot = rows.reduce((a, f) => [a[0] + (f.added || 0), a[1] + (f.removed || 0)], [0, 0]);
+    const staged = rows.filter(f => f.staged).length;
+    const branchName = status.branch || (status.detached ? 'detached HEAD' : 'no branch');
+
+    const bar = h('div.chg-bar',
+      h('span.pill' + (status.detached ? '.warn' : ''), H.ic('branch', 'sm'), branchName),
+      status.ahead ? h('span.pill.pos', '↑' + status.ahead) : null,
+      status.behind ? h('span.pill.warn', '↓' + status.behind) : null,
+      status.conflicted ? h('span.pill.neg', status.conflicted + ' conflicted') : null,
+      h('span.grow'),
+      h('button.btn.sm.ghost', {title:'Reload status and diffs', onclick:()=>load()}, H.ic('retry', 'sm'), 'Refresh'));
+    const sum = h('div.chg-sum',
+      h('b', rows.length + (rows.length === 1 ? ' file' : ' files')),
+      h('span.add.num', '+' + tot[0]), h('span.del.num', '−' + tot[1]),
+      staged ? h('span.muted', staged + ' staged') : null,
+      scope === 'branch' && base ? h('span.muted', 'vs ' + base) : null,
+      h('span.grow'),
+      scope === 'uncommitted' && rows.length ? h('button.btn.sm', {onclick:revertAll}, 'Discard all') : null);
+    top.append(bar, sum);
+    top.hidden = false;
+
+    scopeRow.replaceChildren(
+      H.seg([{id:'uncommitted', label:'Uncommitted'}, {id:'branch', label:'vs ' + (status.defaultBranch || 'trunk')}], scope,
+        id => { if (id === scope) return; scope = id; load(); }),
+      h('span.grow'),
+      scope === 'branch' ? h('span.muted.chg-hint', 'Committed work, read-only') : h('span.muted.chg-hint', cwd));
+    scopeRow.hidden = false;
+
+    list.replaceChildren();
+    if (!rows.length) {
+      list.append(h('div.chg-empty', h('p', scope === 'branch' ? 'No commits ahead of the trunk yet.' : 'No uncommitted changes.'),
+        h('p.muted', scope === 'branch' ? 'Committed work on this branch appears here.' : 'Hermes has not touched files since the last commit.')));
+    } else {
+      rows.forEach(f => list.append(fileRow(f)));
+    }
+    drawActions(staged);
+    loadCheckpoints();
+  }
+
+  function fileRow(f){
+    const row = h('div.drow.chg-frow');
+    const parts = String(f.path || '').split('/');
+    const name = parts.pop();
+    const chip = h('span.chg-st' + (f.status === '?' ? '.warn' : f.status === 'U' ? '.neg' : f.staged ? '.pos' : ''),
+      {title: f.status === '?' ? 'untracked' : f.status === 'U' ? 'conflicted' : f.staged ? 'staged' : 'unstaged'}, f.status || 'M');
+    const main = h('button.chg-fmain', {'aria-expanded':'false', title:f.path},
+      H.ic('chev', 'sm c'),
+      h('span.fn', name, parts.length ? h('span.muted', ' ' + parts.join('/')) : null),
+      chip,
+      h('span.add.num', '+' + (f.added || 0)),
+      f.removed ? h('span.del.num', '−' + f.removed) : null);
+    const body = h('div.dfile.chg-dfile'); body.hidden = true;
+    const q = '/api/git/review/diff?path=' + enc(cwd) + '&file=' + enc(f.path) + '&scope=' + enc(scope) +
+      '&staged=' + (f.staged ? 'true' : 'false') + (scope === 'branch' && base ? '&base=' + enc(base) : '');
+    const fetchDiff = async () => {
+      body.replaceChildren(h('div.chg-note', 'Loading diff…'));
+      try {
+        const res = await H.api.get(q);
+        body.replaceChildren(liveDiff(res && res.diff) || h('div.chg-note', 'No textual diff for this file.'));
+        return true;
+      } catch (e) {
+        body.replaceChildren(h('div.chg-note', h('span', 'Couldn’t load the diff: ' + e.message),
+          h('button.btn.sm', {onclick:fetchDiff}, 'Retry')));
+        return false;
+      }
+    };
+    main.onclick = () => {
+      body.hidden = !body.hidden;
+      main.setAttribute('aria-expanded', String(!body.hidden));
+      if (!body.hidden) fetchDiff();
+    };
+    row.append(main);
+    if (scope === 'uncommitted') {
+      const acts = h('span.chg-acts');
+      if (f.staged) acts.append(h('button.btn.sm.ghost', {title:'Unstage ' + f.path, onclick:()=>mutate('/api/git/review/unstage', f)}, 'Unstage'));
+      else acts.append(h('button.btn.sm.ghost', {title:'Stage ' + f.path, onclick:()=>mutate('/api/git/review/stage', f)}, 'Stage'));
+      if (f.status !== '?') acts.append(h('button.btn.sm.ghost.danger', {title:'Discard changes in ' + f.path, onclick:()=>revertFile(f)}, 'Discard'));
+      row.append(acts);
+    }
+    const wrap = h('div.chg-fwrap', row, body);
+    return wrap;
+  }
+
+  async function mutate(path, f){
+    if (busy) return;
+    busy = true;
+    try {
+      await H.api.post(path, {path: cwd, file: f.path});
+      await load();
+    } catch (e) { H.toast('Couldn’t update the index: ' + e.message); }
+    finally { busy = false; }
+  }
+  function revertFile(f){
+    confirmAsk('Discard changes in this file?', f.path + ' goes back to the committed version. This cannot be undone.', 'Discard', async () => {
+      try { await H.api.post('/api/git/review/revert', {path: cwd, file: f.path}); H.toast('Discarded ' + f.path); load(); }
+      catch (e) { H.toast('Couldn’t discard: ' + e.message); }
+    });
+  }
+  function revertAll(){
+    confirmAsk('Discard all uncommitted changes?', 'Every tracked and untracked change in this folder is thrown away. This cannot be undone.', 'Discard all', async () => {
+      try { await H.api.post('/api/git/review/revert', {path: cwd}); H.toast('Discarded all changes'); load(); }
+      catch (e) { H.toast('Couldn’t discard: ' + e.message); }
+    });
+  }
+
+  function drawActions(staged){
+    actBox.replaceChildren();
+    if (scope !== 'uncommitted') {
+      actBox.append(h('div.chg-note', 'Stage, discard and commit act on uncommitted changes.'));
+      return;
+    }
+    if (!rows.length) return;
+    const area = h('textarea.textarea', {rows:2, placeholder:'Commit message', 'aria-label':'Commit message'});
+    area.value = msg;
+    area.oninput = () => { msg = area.value; sync(); };
+    const commit = h('button.btn.primary', {onclick:doCommit}, 'Commit');
+    const row = h('div.chg-actrow', commit,
+      upstream ? h('button.btn.sm', {title:'Push this branch to its upstream', onclick:doPush}, H.ic('upload', 'sm'), 'Push') : null,
+      h('span.grow'),
+      h('span.muted.chg-hint', staged ? staged + ' staged' : 'Nothing staged yet'));
+    if (upstream) row.setAttribute('data-upstream', 'yes');
+    const box = h('div.chg-commit', area, row);
+    actBox.append(box);
+    function sync(){
+      const ok = staged > 0 && msg.trim().length > 0;
+      commit.toggleAttribute('disabled', !ok);
+      commit.title = staged ? (msg.trim() ? 'Commit ' + staged + ' staged file' + (staged === 1 ? '' : 's') : 'Write a commit message first') : 'Stage a file first';
+      row.querySelector('.chg-hint').textContent = staged ? staged + ' staged' : 'Nothing staged yet';
+    }
+    sync();
+  }
+
+  async function doCommit(){
+    if (busy || !msg.trim()) return;
+    busy = true;
+    const btn = actBox.querySelector('.btn.primary');
+    if (btn) btn.toggleAttribute('disabled', true);
+    try {
+      await H.api.post('/api/git/review/commit', {path: cwd, message: msg.trim(), push: false});
+      H.toast('Committed');
+      msg = '';
+      await load();
+    } catch (e) { H.toast('Commit failed: ' + e.message); }
+    finally { busy = false; if (btn) btn.removeAttribute('disabled'); }
+  }
+  async function doPush(){
+    if (busy) return;
+    busy = true;
+    try { await H.api.post('/api/git/review/push', {path: cwd}); H.toast('Pushed'); await load(); }
+    catch (e) { H.toast('Push failed: ' + e.message); }
+    finally { busy = false; }
+  }
+
+  /* ---- checkpoints (session gateway) ---- */
+  async function loadCheckpoints(){
+    cpBox.replaceChildren(h('div.isec', 'Checkpoints'));
+    if (!sid) { cpBox.append(h('p.muted', 'Checkpoints belong to a saved thread. Send a message first.')); return; }
+    cpBox.append(h('div.chg-note', 'Loading checkpoints…'));
+    try {
+      const res = await H.rpc.call('rollback.list', {session_id: sid});
+      cpBox.replaceChildren(h('div.isec', 'Checkpoints'));
+      const list2 = (res && res.checkpoints) || [];
+      if (res && res.enabled === false) { cpBox.append(h('p.muted', 'Checkpoints are off for this session.')); return; }
+      if (!list2.length) { cpBox.append(h('p.muted', 'No checkpoints yet. Hermes saves one before it edits files.')); return; }
+      cpBox.append(h('p.muted', 'Snapshots of this folder, newest first. A restore rewinds files on disk.'));
+      list2.forEach(c => cpBox.append(cpRow(c)));
+    } catch (e) {
+      cpBox.replaceChildren(h('div.isec', 'Checkpoints'),
+        h('div.chg-note', h('span', 'Couldn’t load checkpoints: ' + e.message), h('button.btn.sm', {onclick:loadCheckpoints}, 'Retry')));
+    }
+  }
+
+  function cpRow(c){
+    const hash = String(c.hash || '');
+    const row = h('div.chg-cp',
+      h('span.chg-hash', {title:hash}, hash.slice(0, 8)),
+      h('span.chg-msg', {title:String(c.message || '')}, String(c.message || 'checkpoint')),
+      h('span.chg-when', fmtWhen(c.timestamp)));
+    const diffBtn = h('button.btn.sm.ghost', {title:'Show what changed since this checkpoint'}, 'Diff');
+    const restoreBtn = h('button.btn.sm', {title:'Restore this folder to this checkpoint'}, 'Restore');
+    row.append(h('span.grow'), diffBtn, restoreBtn);
+    const body = h('div.chg-cpdiff'); body.hidden = true;
+    let loaded = false;
+    diffBtn.onclick = async () => {
+      body.hidden = !body.hidden;
+      if (body.hidden || loaded) return;
+      loaded = true;
+      body.replaceChildren(h('div.chg-note', 'Loading diff…'));
+      try {
+        const res = await H.rpc.call('rollback.diff', {session_id: sid, hash});
+        const pre = liveDiff(res && res.diff);
+        body.replaceChildren(...[res && res.stat ? h('pre.chg-stat', String(res.stat).trim()) : null, pre || h('div.chg-note', 'No differences from this checkpoint.')].filter(Boolean));
+      } catch (e) {
+        loaded = false;
+        body.replaceChildren(h('div.chg-note', 'Couldn’t load the checkpoint diff: ' + e.message));
+      }
+    };
+    restoreBtn.onclick = () => confirmAsk('Restore this folder to the checkpoint?',
+      'Files go back to the snapshot ' + hash.slice(0, 8) + '. This rewinds the folder on disk and cannot be undone.',
+      'Restore', async () => {
+        try {
+          const res = await H.rpc.call('rollback.restore', {session_id: sid, hash});
+          if (res && res.success === false) { H.toast('Restore failed: ' + (res.error || res.reason || 'unknown error')); return; }
+          H.toast('Restored ' + hash.slice(0, 8) + (res && res.history_removed ? ' · rewound ' + res.history_removed + ' turn(s)' : ''));
+          await load();
+        } catch (e) { H.toast('Restore failed: ' + e.message); }
+      });
+    return h('div.chg-cpwrap', row, body);
+  }
+
+  load();
+  return w;
+}
+
 /* The Details drawer: the whole inspector, tabs included, in the kit's drawer. */
 H.details = function(t, S, o){
   o = o || {};
   const tabsFor = () => LIVE ? liveTabs() : TABS;
   let cur = o.tab || (LIVE ? 'context' : 'changes');
-  if (LIVE && cur === 'changes') cur = 'context';
   const dr = H.drawer({title:'Details', width:'min(560px,100vw)', onClose:()=>{ o.onClose && o.onClose(); }});
   const tabs = h('div.tabs.dtabs', {role:'tablist', 'aria-label':'Thread details'});
   const pane = h('div.dpane');
   dr.body.append(h('div.dwrap', tabs, pane));
+  /* Memoised per drawer: switching tabs keeps the draft message and open diffs.
+     A fresh drawer (or Refresh) re-reads git. */
+  let chgView = null;
   const bodies = LIVE ? {
+    changes:()=>{ if (!chgView) chgView = liveChanges(t); return chgView; },
     plan:()=>livePlan(), files:()=>liveFiles(t), shell:()=>liveShell(show),
     context:()=>liveContext(t, S), terminal:()=>ptyTerminal(t, ()=>dr.close()),
   } : {

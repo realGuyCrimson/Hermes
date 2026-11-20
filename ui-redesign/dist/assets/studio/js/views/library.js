@@ -130,6 +130,22 @@ const SKILLS = [
     ['Fetch the last 24 hours across feeds.','Pick five items by relevance to open threads.','Give each item one line and a link.'],
     'hermes rss brief --since 24h',{u:'Oct 24'}),
 ];
+/* Sample categories, named after the hub's real category slugs. */
+const SKILL_CAT = {
+  'web-research':'research', 'backup-verify':'software-development', 'gateway-debugging':'software-development',
+  'inbox-triage':'email', 'shell-safety':'software-development', 'pdf-reader':'productivity',
+  'cron-authoring':'autonomous-ai-agents', 'drive-upload':'productivity', 'writing-voice':'creative',
+  'mcp-setup':'software-development', 'python-env':'software-development', 'release-notes':'software-development',
+  'postgres-explain':'software-development', 'doc-outline':'note-taking', 'arxiv-digest':'research',
+  'screenshot-diff':'software-development', 'kanban-grooming':'productivity', 'telegram-format':'social-media',
+  'worktree-review':'software-development', 'secret-hygiene':'software-development', 'session-recovery':'software-development',
+  'sqlite-inspect':'software-development', 'typescript-migrate':'software-development', 'accessibility-audit':'software-development',
+  'test-triage':'software-development', 'log-digest':'software-development', 'browser-traces':'software-development',
+  'api-contract':'software-development', 'voice-notes':'note-taking', 'link-archiver':'research',
+  'pricing-page-review':'research', 'model-routing':'autonomous-ai-agents', 'oauth-debug':'software-development',
+  'rss-brief':'research',
+};
+SKILLS.forEach(s => { s.cat = SKILL_CAT[s.id] || ''; });
 
 const HUB = [
   {name:'pdf-forms', desc:'Fill, flatten and sign PDF forms without a GUI.', meta:'2.1k installs · hub team · v1.3', cat:'Documents'},
@@ -239,11 +255,11 @@ const MCP_SEED = [
    tools:[T('search','Search pages and databases'),T('fetch_page','Read a page as markdown'),T('create_page','Create a page under a parent',false),T('update_page','Append to or edit a page'),T('list_databases','List shared databases')]},
 ];
 const PLUGIN_SEED = [
-  {id:'browser-use', name:'browser-use', version:'2.4.1', latest:'2.5.0', desc:'Browser harness and CDP tools.', on:true},
-  {id:'taste-skill', name:'taste-skill', version:'2.0.0', latest:null, desc:'Frontend art direction and review.', on:true},
-  {id:'web-research', name:'web-research', version:'1.9.3', latest:'2.0.0', desc:'Search, scraping and citation helpers.', on:true},
-  {id:'google-workspace', name:'google-workspace', version:'0.8.2', latest:null, desc:'Drive, Docs, Sheets and Calendar.', on:true},
-  {id:'honcho-memory', name:'honcho-memory', version:'0.3.1', latest:'0.4.0', desc:'External memory provider adapter.', on:false},
+  {id:'browser-use', name:'browser-use', kind:'browser', version:'2.4.1', latest:'2.5.0', desc:'Browser harness and CDP tools.', on:true},
+  {id:'taste-skill', name:'taste-skill', kind:'web', version:'2.0.0', latest:null, desc:'Frontend art direction and review.', on:true},
+  {id:'web-research', name:'web-research', kind:'web', version:'1.9.3', latest:'2.0.0', desc:'Search, scraping and citation helpers.', on:true},
+  {id:'google-workspace', name:'google-workspace', kind:'platforms', version:'0.8.2', latest:null, desc:'Drive, Docs, Sheets and Calendar.', on:true},
+  {id:'honcho-memory', name:'honcho-memory', kind:'memory', version:'0.3.1', latest:'0.4.0', desc:'External memory provider adapter.', on:false},
 ];
 const HOOK_SEED = [
   {id:'session.start', event:'session.start', script:'~/.hermes/hooks/load-context.sh', on:true},
@@ -581,6 +597,180 @@ function hiddenAttr(el, yes){ if (yes) el.setAttribute('hidden',''); else el.rem
 function num(v){ return h('span.num', String(v)); }
 function emptyRow(text){ return h('div.library-nores', text); }
 
+/* --------------------------------------- collapsible categories (shared)
+   One accordion for the Plugins list, the Skills list and the Hub results.
+   The category always comes from the data: a skill's `category`, a plugin's
+   install folder, a hub entry's `cat`. Anything without one lands in Other;
+   nothing is invented here. Open state lives in localStorage per category,
+   search force-opens matching sections, the height animates on --ease-out. */
+const CAT_LABELS = {
+  browser:'Browser', web:'Web', platforms:'Platforms', image_gen:'Image generation',
+  video_gen:'Video generation', dashboard_auth:'Dashboard auth', cron_providers:'Cron providers',
+  delegation:'Delegation', memory:'Memory', context_engine:'Context engine',
+  config_backends:'Config backends', computer_use:'Computer use', kanban:'Kanban',
+  'autonomous-ai-agents':'Autonomous AI agents',
+};
+function catLabel(key){
+  const k = String(key || '');
+  if (CAT_LABELS[k]) return CAT_LABELS[k];
+  const s = k.replace(/[_-]+/g, ' ').trim();
+  if (!s) return 'Other';
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+function catStore(key){
+  let map = {};
+  try { map = JSON.parse(localStorage.getItem(key) || '{}') || {}; } catch (e){ map = {}; }
+  return {
+    get(k){ return Object.prototype.hasOwnProperty.call(map, k) ? !!map[k] : null; },
+    set(k, v){ map[k] = !!v; try { localStorage.setItem(key, JSON.stringify(map)); } catch (e){} },
+  };
+}
+function reducedMotion(){
+  return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+}
+let groupSeq = 0;
+function animateHeight(box, open, animate){
+  box.style.overflow = 'hidden';
+  const seq = (box._openSeq = (box._openSeq || 0) + 1);
+  if (!animate || reducedMotion()){
+    box.style.transition = 'none';
+    box.style.height = open ? 'auto' : '0px';
+    void box.offsetHeight;
+    box.style.transition = '';
+    return;
+  }
+  box.style.transition = 'none';
+  box.style.height = (open ? 0 : box.scrollHeight) + 'px';
+  void box.offsetHeight;                       /* reflow, so the next height animates */
+  box.style.transition = '';
+  box.style.height = (open ? box.scrollHeight : 0) + 'px';
+  if (open) box.addEventListener('transitionend', function done(ev){
+    if (ev.propertyName !== 'height') return;
+    box.removeEventListener('transitionend', done);
+    if (seq === box._openSeq && box.style.height !== '0px') box.style.height = 'auto';
+  });
+}
+function collapsibleGroups(cfg){
+  const store = catStore(cfg.storeKey);
+  const root = h('div.library-groups', cfg.cls ? {class:cfg.cls} : {});
+  const secs = [];
+  (cfg.groups || []).forEach(g => {
+    const items = (g.items || []).filter(it => it && it.el);
+    if (!items.length) return;
+    const saved = store.get(g.key);
+    const persisted = saved == null ? !!g.defaultOpen : saved;
+    if (saved == null) store.set(g.key, persisted);   /* keep the first view stable */
+    const gid = 'library-group-' + (++groupSeq);
+    const body = h('div.library-groupbody', {id:gid});
+    const inner = h('div.library-groupin');
+    if (cfg.wrap) inner.append(cfg.wrap(items));
+    else items.forEach(it => inner.append(it.el));
+    body.append(inner);
+    const countText = String(g.count != null ? g.count : items.length);
+    const onNow = items.filter(it => it.enabled ? it.enabled() : false).length;
+    const metaCount = h('span.library-gmeta', countText);
+    const metaOn = g.onCount === false ? null : h('span.library-gmeta', (g.onCount != null ? g.onCount : onNow) + ' on');
+    const head = h('button.library-grouphead', {'aria-expanded':'false', 'aria-controls':gid, 'data-group':g.key},
+      h('span.library-gchev', H.ic('chev','sm')),
+      h('span.library-gname', g.label),
+      h('span.library-gdot','·'), metaCount,
+      metaOn ? h('span.library-gdot','·') : null, metaOn,
+      h('span.grow'));
+    const el = h('div.library-group', {'data-group':g.key, 'data-open':String(persisted)}, head, body);
+    const sec = {key:g.key, el, head, body, inner, items, persisted, open:persisted, metaCount, metaOn};
+    head.addEventListener('click', () => {
+      sec.persisted = !sec.open;
+      store.set(g.key, sec.persisted);
+      paint(sec, sec.persisted, true);
+    });
+    paint(sec, persisted, false);
+    root.append(el);
+    secs.push(sec);
+  });
+  function paint(sec, open, animate){
+    sec.open = !!open;
+    sec.head.setAttribute('aria-expanded', String(!!open));
+    sec.el.setAttribute('data-open', String(!!open));
+    sec.inner.inert = !open;                    /* collapsed rows stay out of the tab order */
+    sec.inner.setAttribute('aria-hidden', String(!open));
+    animateHeight(sec.body, !!open, animate);
+  }
+  function applySearch(q){
+    let total = 0;
+    secs.forEach(sec => {
+      if (!q){
+        sec.el.hidden = false;
+        sec.items.forEach(it => { it.el.hidden = false; });
+        total += sec.items.length;
+        paint(sec, sec.persisted, false);
+        return;
+      }
+      let n = 0;
+      sec.items.forEach(it => {
+        const hit = !it.search || it.search.includes(q);
+        it.el.hidden = !hit;
+        if (hit) n++;
+      });
+      sec.el.hidden = n === 0;
+      if (n) paint(sec, true, false);
+      total += n;
+    });
+    return total;
+  }
+  function refreshCounts(){
+    secs.forEach(sec => {
+      sec.metaCount.textContent = String(sec.items.length);
+      if (sec.metaOn) sec.metaOn.textContent = sec.items.filter(it => it.enabled && it.enabled()).length + ' on';
+    });
+  }
+  return {el:root, applySearch, refreshCounts, sections:secs};
+}
+/* A plugin's real kind: the thing it plugs into, i.e. its folder under plugins/.
+   ~/.hermes/plugins/<name> and top-level bundled plugins have none → Other. */
+function pluginCategory(p){
+  if (p.kind) return p.kind;
+  const parts = String(p.path || '').split(/[\\/]+/).filter(Boolean);
+  if (parts.length < 2) return '';
+  const parent = parts[parts.length - 2];
+  return parent === 'plugins' ? '' : parent;
+}
+function pluginCategoryGroups(list){
+  const by = new Map();
+  list.forEach(p => {
+    const key = pluginCategory(p) || 'other';
+    if (!by.has(key)) by.set(key, []);
+    by.get(key).push(p);
+  });
+  return Array.from(by.keys())
+    .sort((a, b) => (a === 'other') - (b === 'other') || catLabel(a).localeCompare(catLabel(b)))
+    .map(key => ({key, label:catLabel(key), rows:by.get(key)}));
+}
+function skillCategoryGroups(list){
+  const by = new Map();
+  list.forEach(s => {
+    const key = String(s.category || s.cat || '').trim() || 'other';
+    if (!by.has(key)) by.set(key, []);
+    by.get(key).push(s);
+  });
+  return Array.from(by.keys()).sort((a, b) => (a === 'other') - (b === 'other') || catLabel(a).localeCompare(catLabel(b)))
+    .map(key => ({key, label:catLabel(key), rows:by.get(key)}));
+}
+function skillCatKey(s){ return String((s && (s.category || s.cat)) || '').trim() || 'other'; }
+/* The skills list keeps its left/right split; only the list column is grouped. */
+function skillGroupsCtl(opts){
+  const groups = skillCategoryGroups(opts.list);
+  const first = groups.length ? groups[0].key : 'other';
+  return collapsibleGroups({
+    storeKey:'hermes.library.skills.open',
+    groups: groups.map(g => ({
+      key:g.key, label:g.label, count:g.rows.length,
+      defaultOpen: g.key === (opts.openKey || first),
+      items: g.rows.map(s => ({el:opts.row(s), search:opts.search(s),
+        enabled: opts.enabled ? () => opts.enabled(s) : null})),
+    })),
+  });
+}
+
 /* -------------------------------------------------------------- shell */
 function pageEl(){
   const page = h('div.page.library-page');
@@ -634,6 +824,7 @@ function contentEl(){
 function buildSkills(){
   if (LIVE) return buildSkillsLive();
   const wrap = h('div.library-skills');
+  let skillsCtl = null, hubCtl = null;
   const summary = h('div.library-summary');
   const summaryText = () => {
     const installed = 34 + state.hubInstalled.size;
@@ -682,7 +873,14 @@ function buildSkills(){
       const pa = state.pinned.has(a.id) ? 1 : 0, pb = state.pinned.has(b.id) ? 1 : 0;
       return (pb - pa) || (b.uses - a.uses);
     });
-    sorted.forEach(s => list.append(skillRow(s)));
+    skillsCtl = skillGroupsCtl({
+      list: sorted,
+      openKey: skillCatKey(currentSkill()),
+      row: skillRow,
+      search: s => (s.name + ' ' + s.desc + ' ' + s.source + ' ' + s.cat).toLowerCase(),
+      enabled: s => !state.disabled.has(s.id),
+    });
+    list.append(skillsCtl.el);
     const detail = h('div.library-detail');
     detail.append(detailContent(currentSkill()));
     split.append(list, detail);
@@ -725,6 +923,7 @@ function buildSkills(){
     const sw = H.sw(enabled, v => {
       if (v) { state.disabled.delete(s.id); toast(s.name+' enabled'); }
       else { state.disabled.add(s.id); toast(s.name+' disabled · stays installed'); }
+      if (skillsCtl) skillsCtl.refreshCounts();
     }, s.name+' enabled');
     row.append(open, h('div.library-skill-ctl', pin, sw));
     return row;
@@ -834,24 +1033,35 @@ function buildSkills(){
 
   function hubGrid(){
     const holder = h('div');
-    const grid = h('div.library-hubgrid');
-    HUB.forEach(x => {
-      const installed = state.hubInstalled.has(x.name);
-      const btn = h('button.btn.sm', installed ? {disabled:true} : {onclick:() => {
-        state.hubInstalled.add(x.name); btn.textContent = 'Installed'; btn.disabled = true;
-        summary.replaceChildren.apply(summary, summaryText());
-        toast('Installed '+x.name+' · tools available next turn');
-      }}, installed ? 'Installed' : 'Install');
-      grid.append(h('div.library-hubcard', {'data-search':(x.name+' '+x.desc+' '+x.cat).toLowerCase()},
-        h('div.library-hubtop', h('div', h('div.library-hubname', x.name), h('div.library-hubcat', x.cat)), btn),
-        h('p.library-hubdesc', x.desc),
-        h('div.library-hubmeta', x.meta)));
+    const cats = [];
+    HUB.forEach(x => { if (!cats.some(c => c.cat === x.cat)) cats.push({cat:x.cat}); });
+    hubCtl = collapsibleGroups({
+      storeKey:'hermes.library.hub.open',
+      cls:'library-hubgroups',
+      groups: cats.map(c => ({
+        key:c.cat || 'other', label:catLabel(c.cat || 'other'), defaultOpen:true,
+        onCount:false,
+        items: HUB.filter(x => (x.cat || 'other') === (c.cat || 'other')).map(x => ({el:hubCard(x), search:(x.name + ' ' + x.desc + ' ' + (x.cat || '')).toLowerCase()})),
+      })),
+      wrap: items => h('div.library-hubgrid', items.map(it => it.el)),
     });
     holder.append(h('div.library-hubhead',
       h('div', h('h2','Hub'), h('p','Reviewed skills you can install with one click. Pinned after 8 uses.')),
       h('span.faint','10 skills · updated this week')),
-      grid, h('div.library-nores','No hub skills match that search.'));
+      hubCtl.el, h('div.library-nores','No hub skills match that search.'));
     return holder;
+  }
+  function hubCard(x){
+    const installed = state.hubInstalled.has(x.name);
+    const btn = h('button.btn.sm', installed ? {disabled:true} : {onclick:() => {
+      state.hubInstalled.add(x.name); btn.textContent = 'Installed'; btn.disabled = true;
+      summary.replaceChildren.apply(summary, summaryText());
+      toast('Installed '+x.name+' · tools available next turn');
+    }}, installed ? 'Installed' : 'Install');
+    return h('div.library-hubcard', {'data-search':(x.name+' '+x.desc+' '+x.cat).toLowerCase()},
+      h('div.library-hubtop', h('div', h('div.library-hubname', x.name), h('div.library-hubcat', x.cat)), btn),
+      h('p.library-hubdesc', x.desc),
+      h('div.library-hubmeta', x.meta));
   }
   function bundleGrid(){
     const holder = h('div');
@@ -876,16 +1086,12 @@ function buildSkills(){
   }
 
   function filterInstalled(q){
-    const items = wrap.querySelectorAll('.library-skill');
-    let n = 0;
-    items.forEach(el => { const hit = !q || el.dataset.search.includes(q); el.hidden = !hit; if (hit) n++; });
+    const n = skillsCtl ? skillsCtl.applySearch(q) : wrap.querySelectorAll('.library-skill:not([hidden])').length;
     const nr = wrap.querySelector('.library-nores');
     if (nr) nr.hidden = n > 0;
-    if (!q) items.forEach(el => el.hidden = false);
   }
   function filterHub(q){
-    const items = wrap.querySelectorAll('.library-hubcard'); let n = 0;
-    items.forEach(el => { const hit = !q || el.dataset.search.includes(q); el.hidden = !hit; if (hit) n++; });
+    const n = hubCtl ? hubCtl.applySearch(q) : 0;
     const nr = wrap.querySelector('.library-nores'); if (nr) nr.hidden = n > 0;
   }
   function filterBundles(q){
@@ -1281,6 +1487,7 @@ function buildTools(){
   }
 
   /* plugins + hooks */
+  let pluginsCtl = null;
   function pluginRow(p){
     const ver = h('span.library-plugin-ver.mono', 'v'+p.version);
     const flag = p.latest ? pill('Update available','warn') : h('span.faint','Up to date');
@@ -1294,11 +1501,21 @@ function buildTools(){
     return h('div.row.library-plugin', {'data-search':(p.name+' '+p.desc).toLowerCase()},
       h('div.grow', h('div.library-plugin-name', p.name), h('div.s', p.desc)),
       ver, flag, upd,
-      H.sw(p.on, v => { p.on = v; toast(p.name+(v?' enabled':' disabled')); }, p.name+' enabled'));
+      H.sw(p.on, v => { p.on = v; toast(p.name+(v?' enabled':' disabled'));
+        if (pluginsCtl) pluginsCtl.refreshCounts(); }, p.name+' enabled'));
   }
+  pluginsCtl = collapsibleGroups({
+    storeKey:'hermes.library.plugins.open',
+    groups: pluginCategoryGroups(state.plugins).map(g => ({
+      key:g.key, label:g.label, count:g.rows.length,
+      defaultOpen: g.rows.some(p => p.on),
+      items: g.rows.map(p => ({el:pluginRow(p), search:(p.name + ' ' + p.desc).toLowerCase(),
+        enabled: () => !!p.on})),
+    })),
+  });
   const plugins = h('div.card.library-plugins',
     h('div.card-h', h('span','Plugins'), h('span.faint', state.plugins.length+' installed · 3 updates'), h('div.grow'), h('span.faint','~/.hermes/plugins')),
-    h('div.list', state.plugins.map(pluginRow)));
+    pluginsCtl.el);
 
   const hooks = h('div.card.library-hooks',
     h('div.card-h', h('span','Hooks'), h('span.faint', state.hooks.length+' on'), h('div.grow'), h('span.faint','run in order')),
@@ -1319,9 +1536,10 @@ function buildTools(){
     wrap.querySelectorAll('.library-mcpdetailrow').forEach(el => {
       el.hidden = q ? true : el.dataset.server !== state.expandedMcp;
     });
-    wrap.querySelectorAll('.library-plugin, .library-hook').forEach(el => {
+    wrap.querySelectorAll('.library-hook').forEach(el => {
       el.hidden = !!q && !el.dataset.search.includes(q);
     });
+    if (pluginsCtl) pluginsCtl.applySearch(q);
     const mcpSecEl = wrap.querySelector('.library-mcpsec');
     if (mcpSecEl){
       mcpSecEl.hidden = !!q && !mcpSecEl.querySelector('.library-mcprow:not([hidden])');
@@ -1487,6 +1705,7 @@ function fromApiSkill(s){
 }
 function buildSkillsLive(){
   const wrap = h('div.library-skills');
+  let skillsCtl = null;
   const summary = h('div.library-summary', 'Loading installed skills…');
   const curatorNote = h('span.faint');
   const run = h('button.btn.primary', {onclick:runCurator}, 'Run curator');
@@ -1550,7 +1769,15 @@ function buildSkillsLive(){
     const split = h('div.library-split');
     const list = h('div.library-list', {role:'list', 'aria-label':'Installed skills'});
     const sorted = live.skills.slice().sort((a,b) => (b.enabled - a.enabled) || (b.uses - a.uses) || a.name.localeCompare(b.name));
-    sorted.forEach(s => list.append(skillRowLive(s)));
+    const selSkill = live.skills.find(s => s.id === state.skill);
+    skillsCtl = skillGroupsCtl({
+      list: sorted,
+      openKey: selSkill ? skillCatKey(selSkill) : null,
+      row: skillRowLive,
+      search: s => (s.name + ' ' + s.desc + ' ' + s.category + ' ' + s.source).toLowerCase(),
+      enabled: s => !!s.enabled,
+    });
+    list.append(skillsCtl.el);
     const detail = h('div.library-detail');
     detail.append(liveLoad('Loading SKILL.md…'));
     split.append(list, detail);
@@ -1611,6 +1838,7 @@ function buildSkillsLive(){
       s.enabled = !!enabled;
       toast(s.name + (enabled ? ' enabled' : ' disabled · stays on disk'));
       paintSummary();
+      if (skillsCtl) skillsCtl.refreshCounts();
     } catch (e){
       toast('Couldn’t change ' + s.name + ': ' + e.message);
       live.skills = null; await load();
@@ -1740,8 +1968,7 @@ function buildSkillsLive(){
   function liveFilter(q){
     if (state.browse === 'hub'){ hubSearch(q); return; }
     if (state.browse === 'bundles'){ return; }
-    let n = 0;
-    body.querySelectorAll('.library-skill').forEach(el => { const hit = !q || el.dataset.search.includes(q); el.hidden = !hit; if (hit) n++; });
+    const n = skillsCtl ? skillsCtl.applySearch(q) : 0;
     const nr = body.querySelector('.library-nores');
     if (nr && !nr.classList.contains('library-liveerr')) nr.hidden = !q || n > 0;
   }
@@ -2000,6 +2227,7 @@ function buildMemoryLive(){
 /* ------------------------------------------------------- live: tools */
 function buildToolsLive(){
   const wrap = h('div.library-toolswrap');
+  let pluginsCtl = null;
   const summary = h('div.library-summary', 'Loading toolsets…');
   const bar = h('div.library-bar',
     h('span.library-inline-label','Profile ' + live.profile()), summary,
@@ -2240,9 +2468,18 @@ function buildToolsLive(){
     if (live.pluginsErr) plugins.append(liveErr(live.pluginsErr, loadPlugins, 'plugins'));
     else if (!live.plugins) plugins.append(liveLoad('Loading plugins…'));
     else {
-      const rows = live.plugins.map(pluginRowLive);
+      pluginsCtl = collapsibleGroups({
+        storeKey:'hermes.library.plugins.open',
+        groups: pluginCategoryGroups(live.plugins).map(g => ({
+          key:g.key, label:g.label, count:g.rows.length,
+          defaultOpen: g.rows.some(p => p.runtime_status !== 'disabled'),
+          items: g.rows.map(p => ({el:pluginRowLive(p),
+            search:(p.name + ' ' + (p.description || '') + ' ' + (p.source || '')).toLowerCase(),
+            enabled: () => p.runtime_status !== 'disabled'})),
+        })),
+      });
       plugins.append(h('div.card-h', h('span','Plugins'), h('span.faint', live.plugins.length + ' installed'), h('div.grow'), h('span.faint','~/.hermes/plugins')),
-        rows.length ? h('div.list', rows) : liveEmpty('No plugins installed.'));
+        live.plugins.length ? pluginsCtl.el : liveEmpty('No plugins installed.'));
     }
     const hooks = h('div.card.library-hooks');
     if (live.hooksErr) hooks.append(liveErr(live.hooksErr, loadHooks, 'hooks'));
@@ -2308,10 +2545,11 @@ function buildToolsLive(){
   }
 
   function filterToolsDom(q){
-    wrap.querySelectorAll('.library-tool, .library-plugin, .library-hook').forEach(el => {
+    wrap.querySelectorAll('.library-tool, .library-hook').forEach(el => {
       el.hidden = !!q && !String(el.dataset.search || '').includes(q);
     });
     wrap.querySelectorAll('.library-mcprow').forEach(el => { el.hidden = !!q && !String(el.dataset.search || '').includes(q); });
+    if (pluginsCtl) pluginsCtl.applySearch(q);
   }
   filterActive = filterToolsDom;
 

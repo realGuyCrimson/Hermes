@@ -1202,15 +1202,15 @@ function renderLiveThread(root, ctx){
   }
 
   /* slash commands: slash.exec → command.dispatch (skills, /snapshot restore), like the Desktop */
-  function slashOutput(text){
+  function slashOutput(text, failed){
     if (!text) return;
     unempty();
-    col.append(h('pre.cmd', String(text)));
+    col.append(h('pre.cmd' + (failed ? '.failed' : ''), String(text)));
     toBottom();
   }
   function slashFailed(name, e){
     const msg = (e && e.message) || String(e) || 'unknown error';
-    slashOutput(/^\/\S+ failed:/.test(msg) ? msg : '/' + name + ' failed: ' + msg);
+    slashOutput(/^\/\S+ failed:/.test(msg) ? msg : '/' + name + ' failed: ' + msg, true);
   }
   async function handleDispatch(d, name, arg){
     if (d.type === 'exec' || d.type === 'plugin') { slashOutput(d.output || '/' + name + ': no output'); return; }
@@ -1360,7 +1360,7 @@ function renderLiveThread(root, ctx){
   /* the real catalog needs the socket: ask after connect (never the sample list), and once more
      whenever a reconnect brings the socket back with nothing loaded yet */
   subs.push(H.rpc.onState(s => { if (s && s.state === 'open' && !commandCatalog) loadCatalog(sid); }));
-  H.rpc.connect().then(() => H.rpc.ready()).then(() => { wire(); loadCatalog(sid); if (storedId || sid) H.rpc.syncRequests(storedId || sid).catch(()=>{}); }).catch(e => {
+  H.rpc.connect().then(() => H.rpc.ready()).then(() => { wire(); loadCatalog(sid).then(()=>{ if (!pop.hidden) showPop(); }); if (storedId || sid) H.rpc.syncRequests(storedId || sid).catch(()=>{}); }).catch(e => {
     unempty(); col.append(errorCard('Couldn\'t connect to the Hermes gateway: ' + e.message, () => H.rpc.connect().then(()=>{ wire(); loadCatalog(sid); loadHistory(); })));
   });
   requestAnimationFrame(toBottom);

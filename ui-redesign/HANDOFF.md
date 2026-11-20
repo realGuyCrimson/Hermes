@@ -23,6 +23,17 @@ Goal (active /goal): a totally new, non-terminal UI/UX for Hermes (inspired by G
 ## Done at last write
 All 8 workers integrated; every route verified live (zero console errors); gated login + REST cookie + gateway WS ticket + PTY ticket verified on an isolated throwaway home; test rigs (:9130/:9131/:9333) stopped; two worker test sessions deleted.
 
+## Round 3 (2026-11-20, promoted to production dist/)
+- Thread: real attachments (picker, drag-drop, paste; image.attach_bytes / file.attach, REST fallback), scrollable keyboard-navigable model menu, context shown as a percentage (raw numbers in tooltip + Details > Context).
+- Library: Plugins (by install folder) and Skills (by real category) are collapsible groups; one shared helper `collapsibleGroups` in views/library.js; open state persisted in localStorage.
+- Inspector: live Changes tab (git status/diff, stage/unstage/discard/commit, push when remote) + Checkpoints (rollback.list/diff/restore).
+- Composer: slash.exec falls back to command.dispatch; real commands.catalog after connect; gateway socket dialled at boot so Inbox approvals arrive.
+- Known gaps from the parity audit (not done): profile switch does not retarget calls; vault.save_login/setup cards; backup download/restore-upload; webhook secret not shown once; memory path hard-coded; Files is read-only.
+
+## Login page (2026-11-20)
+- /login is server-rendered by Hermes (`hermes_cli/dashboard_auth/login_page.py`), outside the SPA dist. Restyled via `login/studio_login.py` (post-processes the stock HTML; falls back to stock on any error) + a guarded hook appended to login_page.py by `login/install-login.sh` (backup: `login/login_page.py.orig`).
+- `hermes update` restores the stock file: re-run `./login/install-login.sh`. `./rollback.sh` removes the hook and the dist override.
+
 ## Remaining (historical)
 1. Collect the 8 worker reports, `node --check` everything, `node build.mjs`.
 2. Verify every route on :9130 (live.sh) and the login + chat path on :9131; fix integration bugs; no sample data in live mode; zero console errors.
