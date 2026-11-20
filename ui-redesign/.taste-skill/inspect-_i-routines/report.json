@@ -1,0 +1,1337 @@
+{
+ "url": "prototype/_i-routines.html",
+ "at": "2026-11-19T22:45:49.105Z",
+ "allow": [
+  "font-not-dealt",
+  "app-title-size",
+  "colour-sprawl"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 1,
+   "filled": [
+    0.97
+   ],
+   "motion": {
+    "elements": 13,
+    "css": 13,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 900,
+     "screens": 1,
+     "words": 98,
+     "img": 0,
+     "video": 0,
+     "canvas": 1,
+     "svg": 27,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Routines",
+     "words": 1,
+     "chars": 8,
+     "lines": 1,
+     "size": 334,
+     "vw": 23.2,
+     "font": "Plus Jakarta Sans",
+     "weight": 800,
+     "tracking": -0.06,
+     "leading": 0.8,
+     "top": 690,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Routines",
+     "words": 1,
+     "lines": 1,
+     "size": 334,
+     "font": "Plus Jakarta Sans"
+    },
+    "headings": [
+     {
+      "text": "Hermes works while you sleep.",
+      "words": 5,
+      "chars": 29,
+      "lines": 2,
+      "size": 42.7,
+      "vw": 3,
+      "font": "Plus Jakarta Sans",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 191,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Routines",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 334,
+      "vw": 23.2,
+      "font": "Plus Jakarta Sans",
+      "weight": 800,
+      "tracking": -0.055,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.89,
+      "top": 690,
+      "tag": "h1",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 5,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Plus Jakarta Sans",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      18,
+      19,
+      43,
+      334
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 334,
+      "vw": 23.2,
+      "font": "Plus Jakarta Sans",
+      "text": "Routines"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.22,
+     "smallText": 2
+    },
+    "eyebrows": [
+     {
+      "text": "Verify last night’s backup zip",
+      "above": "Routines",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13.5,
+      "top": 673
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f3f1ea",
+     "bodyBgHsl": {
+      "h": 47,
+      "s": 0.27,
+      "l": 0.94
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f3f1ea",
+       "top": 0,
+       "hsl": {
+        "h": 47,
+        "s": 0.27,
+        "l": 0.94
+       }
+      },
+      {
+       "color": "#5cc7b4",
+       "top": 0,
+       "hsl": {
+        "h": 169,
+        "s": 0.49,
+        "l": 0.57
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0a0640",
+       "share": 0.56
+      },
+      {
+       "color": "#06103a",
+       "share": 0.17
+      },
+      {
+       "color": "#4a4680",
+       "share": 0.13
+      },
+      {
+       "color": "#66629a",
+       "share": 0.06
+      },
+      {
+       "color": "#5cc7b4",
+       "share": 0.04
+      }
+     ],
+     "button": {
+      "bg": "#06103a",
+      "hsl": {
+       "h": 228,
+       "s": 0.81,
+       "l": 0.13
+      },
+      "fg": "#5cc7b4"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 2,
+     "inHero": 2,
+     "radius": 3,
+     "height": 58,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "New routine",
+      "Pause all"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.24
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 274,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "plus jakarta sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 900,
+    "margins": {
+     "left": 10,
+     "right": 0
+    },
+    "sections": [],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Routines",
+      "size": 334,
+      "top": 690,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 72,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 1,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.09,
+    "voidBox": {
+     "x": 540,
+     "y": 120,
+     "w": 240,
+     "h": 480
+    }
+   },
+   "app": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "dark": false,
+    "ground": "#f3f1ea",
+    "sidebar": {
+     "w": 72,
+     "tag": "aside",
+     "links": 30,
+     "share": 0.05
+    },
+    "topbar": null,
+    "canvas": {
+     "left": 17,
+     "right": 0
+    },
+    "hero": {
+     "text": "Routines",
+     "words": 1,
+     "chars": 8,
+     "lines": 1,
+     "size": 334,
+     "vw": 23.2,
+     "font": "Plus Jakarta Sans",
+     "weight": 800,
+     "tracking": -0.06,
+     "leading": 0.8,
+     "top": 690,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 1,
+     "firstScreen": 1,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 1,
+     "radii": [
+      [
+       0,
+       1
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 4,
+     "tabularShare": 0.25,
+     "kpiMax": 12
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.06,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      18,
+      19,
+      43,
+      334
+     ]
+    },
+    "title": {
+     "text": "Routines",
+     "size": 334,
+     "top": 690
+    },
+    "colourShare": 0.756
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 1,
+   "filled": [
+    0.94
+   ],
+   "motion": {
+    "elements": 13,
+    "css": 13,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 1024,
+     "screens": 1,
+     "words": 99,
+     "img": 0,
+     "video": 0,
+     "canvas": 1,
+     "svg": 27,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Routines",
+     "words": 1,
+     "chars": 8,
+     "lines": 1,
+     "size": 188,
+     "vw": 24.4,
+     "font": "Plus Jakarta Sans",
+     "weight": 800,
+     "tracking": -0.05,
+     "leading": 0.8,
+     "top": 906,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Routines",
+     "words": 1,
+     "lines": 1,
+     "size": 187.5,
+     "font": "Plus Jakarta Sans"
+    },
+    "headings": [
+     {
+      "text": "Hermes works while you sleep.",
+      "words": 5,
+      "chars": 29,
+      "lines": 1,
+      "size": 34,
+      "vw": 4.4,
+      "font": "Plus Jakarta Sans",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.63,
+      "top": 490,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Routines",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 187.5,
+      "vw": 24.4,
+      "font": "Plus Jakarta Sans",
+      "weight": 800,
+      "tracking": -0.055,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 906,
+      "tag": "h1",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 5,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Plus Jakarta Sans",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      19,
+      34,
+      188
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 187.5,
+      "vw": 24.4,
+      "font": "Plus Jakarta Sans",
+      "text": "Routines"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.24,
+     "smallText": 3
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f3f1ea",
+     "bodyBgHsl": {
+      "h": 47,
+      "s": 0.27,
+      "l": 0.94
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f3f1ea",
+       "top": 0,
+       "hsl": {
+        "h": 47,
+        "s": 0.27,
+        "l": 0.94
+       }
+      },
+      {
+       "color": "#5cc7b4",
+       "top": 52,
+       "hsl": {
+        "h": 169,
+        "s": 0.49,
+        "l": 0.57
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0a0640",
+       "share": 0.55
+      },
+      {
+       "color": "#06103a",
+       "share": 0.17
+      },
+      {
+       "color": "#4a4680",
+       "share": 0.16
+      },
+      {
+       "color": "#66629a",
+       "share": 0.05
+      },
+      {
+       "color": "#5cc7b4",
+       "share": 0.04
+      }
+     ],
+     "button": {
+      "bg": "#06103a",
+      "hsl": {
+       "h": 228,
+       "s": 0.81,
+       "l": 0.13
+      },
+      "fg": "#5cc7b4"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 6,
+     "radius": 3,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "New thread",
+      "Search ⌘K",
+      "Routines",
+      "New routine",
+      "Pause all"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 1,
+     "hairlineSamples": [
+      "aside.rail 320px"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.17
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": true,
+     "height": 1024,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "plus jakarta sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 1024,
+    "margins": {
+     "left": 0,
+     "right": 8
+    },
+    "sections": [
+     {
+      "sel": "h1.stage-title",
+      "tag": "h1",
+      "top": 906,
+      "height": 150,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.stage-copy",
+      "tag": "div",
+      "top": 490,
+      "height": 234,
+      "words": 14,
+      "media": 0,
+      "middle": 7,
+      "heading": null,
+      "left": 18,
+      "right": 355,
+      "textLeft": 18,
+      "textRight": 386,
+      "fullBleed": false,
+      "footer": true,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Routines",
+      "size": 188,
+      "top": 906,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 0,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 1,
+    "bodySize": 16,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "dark": false,
+    "ground": "#f3f1ea",
+    "sidebar": {
+     "w": 320,
+     "tag": "aside",
+     "links": 30,
+     "share": 0.42
+    },
+    "topbar": {
+     "h": 52
+    },
+    "canvas": {
+     "left": 48,
+     "right": 8
+    },
+    "hero": {
+     "text": "Routines",
+     "words": 1,
+     "chars": 8,
+     "lines": 1,
+     "size": 188,
+     "vw": 24.4,
+     "font": "Plus Jakarta Sans",
+     "weight": 800,
+     "tracking": -0.05,
+     "leading": 0.8,
+     "top": 906,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 0,
+     "firstScreen": 0,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 0,
+     "radii": [],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 4,
+     "tabularShare": 0.25,
+     "kpiMax": 12
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.06,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      19,
+      34,
+      188
+     ]
+    },
+    "title": {
+     "text": "Routines",
+     "size": 188,
+     "top": 906
+    },
+    "colourShare": 0.817
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 1,
+   "filled": [
+    0.95
+   ],
+   "motion": {
+    "elements": 13,
+    "css": 13,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 844,
+     "screens": 1,
+     "words": 99,
+     "img": 0,
+     "video": 0,
+     "canvas": 1,
+     "svg": 27,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Routines",
+     "words": 1,
+     "chars": 8,
+     "lines": 1,
+     "size": 95,
+     "vw": 24.4,
+     "font": "Plus Jakarta Sans",
+     "weight": 800,
+     "tracking": -0.05,
+     "leading": 0.8,
+     "top": 784,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Routines",
+     "words": 1,
+     "lines": 1,
+     "size": 95.2,
+     "font": "Plus Jakarta Sans"
+    },
+    "headings": [
+     {
+      "text": "Hermes works while you sleep.",
+      "words": 5,
+      "chars": 29,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Plus Jakarta Sans",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.8,
+      "top": 318,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Routines",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 95.2,
+      "vw": 24.4,
+      "font": "Plus Jakarta Sans",
+      "weight": 800,
+      "tracking": -0.055,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 784,
+      "tag": "h1",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 5,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Plus Jakarta Sans",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      19,
+      22,
+      95
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": null,
+     "measureChars": null,
+     "max": {
+      "size": 95.2,
+      "vw": 24.4,
+      "font": "Plus Jakarta Sans",
+      "text": "Routines"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.24,
+     "smallText": 3
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f3f1ea",
+     "bodyBgHsl": {
+      "h": 47,
+      "s": 0.27,
+      "l": 0.94
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f3f1ea",
+       "top": 0,
+       "hsl": {
+        "h": 47,
+        "s": 0.27,
+        "l": 0.94
+       }
+      },
+      {
+       "color": "#5cc7b4",
+       "top": 52,
+       "hsl": {
+        "h": 169,
+        "s": 0.49,
+        "l": 0.57
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0a0640",
+       "share": 0.55
+      },
+      {
+       "color": "#06103a",
+       "share": 0.17
+      },
+      {
+       "color": "#4a4680",
+       "share": 0.16
+      },
+      {
+       "color": "#66629a",
+       "share": 0.05
+      },
+      {
+       "color": "#5cc7b4",
+       "share": 0.04
+      }
+     ],
+     "button": {
+      "bg": "#06103a",
+      "hsl": {
+       "h": 228,
+       "s": 0.81,
+       "l": 0.13
+      },
+      "fg": "#5cc7b4"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 6,
+     "radius": 3,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "New thread",
+      "Search ⌘K",
+      "Routines",
+      "New routine",
+      "Pause all"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 1,
+     "hairlineSamples": [
+      "aside.rail 320px"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.13
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": true,
+     "height": 844,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "plus jakarta sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 844,
+    "margins": {
+     "left": 0,
+     "right": 8
+    },
+    "sections": [],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Routines",
+      "size": 95,
+      "top": 784,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 0,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 1,
+    "bodySize": 16,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "dark": false,
+    "ground": "#f3f1ea",
+    "sidebar": null,
+    "topbar": {
+     "h": 52
+    },
+    "canvas": {
+     "left": 8,
+     "right": 8
+    },
+    "hero": {
+     "text": "Routines",
+     "words": 1,
+     "chars": 8,
+     "lines": 1,
+     "size": 95,
+     "vw": 24.4,
+     "font": "Plus Jakarta Sans",
+     "weight": 800,
+     "tracking": -0.05,
+     "leading": 0.8,
+     "top": 784,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 0,
+     "firstScreen": 0,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 0,
+     "radii": [],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 4,
+     "tabularShare": 0.25,
+     "kpiMax": 12
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.06,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      19,
+      22,
+      95
+     ]
+    },
+    "title": {
+     "text": "Routines",
+     "size": 95,
+     "top": 784
+    },
+    "colourShare": 0.802
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (page background #f3f1ea, section #f3f1ea).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/home/ubuntu/hermes-maintenance/ui-redesign/.taste-skill/inspect-_i-routines/desktop-fold.jpg",
+   "pages": [
+    "/home/ubuntu/hermes-maintenance/ui-redesign/.taste-skill/inspect-_i-routines/desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/home/ubuntu/hermes-maintenance/ui-redesign/.taste-skill/inspect-_i-routines/tablet-fold.jpg",
+   "pages": [
+    "/home/ubuntu/hermes-maintenance/ui-redesign/.taste-skill/inspect-_i-routines/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/home/ubuntu/hermes-maintenance/ui-redesign/.taste-skill/inspect-_i-routines/mobile-fold.jpg",
+   "pages": [
+    "/home/ubuntu/hermes-maintenance/ui-redesign/.taste-skill/inspect-_i-routines/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

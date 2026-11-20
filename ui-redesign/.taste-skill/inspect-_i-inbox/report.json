@@ -1,0 +1,1353 @@
+{
+ "url": "prototype/_i-inbox.html",
+ "at": "2026-11-19T22:45:59.063Z",
+ "allow": [
+  "font-not-dealt",
+  "app-title-size",
+  "colour-sprawl"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 1,
+   "filled": [
+    0.98
+   ],
+   "motion": {
+    "elements": 12,
+    "css": 12,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 900,
+     "screens": 1,
+     "words": 99,
+     "img": 0,
+     "video": 0,
+     "canvas": 1,
+     "svg": 23,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Inbox",
+     "words": 1,
+     "chars": 5,
+     "lines": 1,
+     "size": 468,
+     "vw": 32.5,
+     "font": "Plus Jakarta Sans",
+     "weight": 800,
+     "tracking": -0.05,
+     "leading": 0.8,
+     "top": 605,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Inbox",
+     "words": 1,
+     "lines": 1,
+     "size": 468,
+     "font": "Plus Jakarta Sans"
+    },
+    "headings": [
+     {
+      "text": "Wants to restart the gateway",
+      "words": 5,
+      "chars": 28,
+      "lines": 2,
+      "size": 42.7,
+      "vw": 3,
+      "font": "Plus Jakarta Sans",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.3,
+      "top": 191,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Inbox",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 468,
+      "vw": 32.5,
+      "font": "Plus Jakarta Sans",
+      "weight": 800,
+      "tracking": -0.055,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 605,
+      "tag": "h1",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 5,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Plus Jakarta Sans",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      18,
+      19,
+      43,
+      468
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Plus Jakarta Sans",
+      "size": 18,
+      "leading": 1.5,
+      "weight": 500,
+      "tracking": 0,
+      "contrast": 10.7
+     },
+     "measureChars": 48,
+     "max": {
+      "size": 468,
+      "vw": 32.5,
+      "font": "Plus Jakarta Sans",
+      "text": "Inbox"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.17,
+     "smallText": 3
+    },
+    "eyebrows": [
+     {
+      "text": "1 of 7 waiting",
+      "above": "Inbox",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12.5,
+      "top": 498
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f3f1ea",
+     "bodyBgHsl": {
+      "h": 47,
+      "s": 0.27,
+      "l": 0.94
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f3f1ea",
+       "top": 0,
+       "hsl": {
+        "h": 47,
+        "s": 0.27,
+        "l": 0.94
+       }
+      },
+      {
+       "color": "#f0bb3a",
+       "top": 0,
+       "hsl": {
+        "h": 43,
+        "s": 0.86,
+        "l": 0.58
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0a0640",
+       "share": 0.76
+      },
+      {
+       "color": "#4a4680",
+       "share": 0.13
+      },
+      {
+       "color": "#66629a",
+       "share": 0.05
+      },
+      {
+       "color": "#f0bb3a",
+       "share": 0.04
+      },
+      {
+       "color": "#f3f1ea",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#0a0640",
+      "hsl": {
+       "h": 244,
+       "s": 0.83,
+       "l": 0.14
+      },
+      "fg": "#f0bb3a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 2,
+     "inHero": 2,
+     "radius": 3,
+     "height": 58,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Allow once",
+      "Deny"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 4,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.24
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 274,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "plus jakarta sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 900,
+    "margins": {
+     "left": 10,
+     "right": 0
+    },
+    "sections": [],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Inbox",
+      "size": 468,
+      "top": 605,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 72,
+      "n": 1
+     },
+     {
+      "x": 128,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 2,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.07,
+    "voidBox": {
+     "x": 540,
+     "y": 120,
+     "w": 240,
+     "h": 360
+    }
+   },
+   "app": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "dark": false,
+    "ground": "#f3f1ea",
+    "sidebar": {
+     "w": 72,
+     "tag": "aside",
+     "links": 30,
+     "share": 0.05
+    },
+    "topbar": null,
+    "canvas": {
+     "left": 17,
+     "right": 0
+    },
+    "hero": {
+     "text": "Inbox",
+     "words": 1,
+     "chars": 5,
+     "lines": 1,
+     "size": 468,
+     "vw": 32.5,
+     "font": "Plus Jakarta Sans",
+     "weight": 800,
+     "tracking": -0.05,
+     "leading": 0.8,
+     "top": 605,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 1,
+     "firstScreen": 1,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 1,
+     "radii": [
+      [
+       4,
+       1
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 3,
+     "tabularShare": 0,
+     "kpiMax": 11.5
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.05,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      18,
+      19,
+      43,
+      468
+     ]
+    },
+    "title": {
+     "text": "Inbox",
+     "size": 468,
+     "top": 605
+    },
+    "colourShare": 0.855
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 1,
+   "filled": [
+    0.94
+   ],
+   "motion": {
+    "elements": 12,
+    "css": 12,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 1024,
+     "screens": 1,
+     "words": 100,
+     "img": 0,
+     "video": 0,
+     "canvas": 1,
+     "svg": 23,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Inbox",
+     "words": 1,
+     "chars": 5,
+     "lines": 1,
+     "size": 289,
+     "vw": 37.6,
+     "font": "Plus Jakarta Sans",
+     "weight": 800,
+     "tracking": -0.05,
+     "leading": 0.8,
+     "top": 842,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Inbox",
+     "words": 1,
+     "lines": 1,
+     "size": 288.8,
+     "font": "Plus Jakarta Sans"
+    },
+    "headings": [
+     {
+      "text": "Wants to restart the gateway",
+      "words": 5,
+      "chars": 28,
+      "lines": 2,
+      "size": 34,
+      "vw": 4.4,
+      "font": "Plus Jakarta Sans",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 490,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Inbox",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 288.8,
+      "vw": 37.6,
+      "font": "Plus Jakarta Sans",
+      "weight": 800,
+      "tracking": -0.055,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 842,
+      "tag": "h1",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 5,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Plus Jakarta Sans",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      19,
+      34,
+      289
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Plus Jakarta Sans",
+      "size": 15.7,
+      "leading": 1.5,
+      "weight": 500,
+      "tracking": 0,
+      "contrast": 10.7
+     },
+     "measureChars": 37,
+     "max": {
+      "size": 288.8,
+      "vw": 37.6,
+      "font": "Plus Jakarta Sans",
+      "text": "Inbox"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.2,
+     "smallText": 4
+    },
+    "eyebrows": [
+     {
+      "text": "1 of 7 waiting",
+      "above": "Inbox",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12.5,
+      "top": 768
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f3f1ea",
+     "bodyBgHsl": {
+      "h": 47,
+      "s": 0.27,
+      "l": 0.94
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f3f1ea",
+       "top": 0,
+       "hsl": {
+        "h": 47,
+        "s": 0.27,
+        "l": 0.94
+       }
+      },
+      {
+       "color": "#f0bb3a",
+       "top": 52,
+       "hsl": {
+        "h": 43,
+        "s": 0.86,
+        "l": 0.58
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0a0640",
+       "share": 0.74
+      },
+      {
+       "color": "#4a4680",
+       "share": 0.15
+      },
+      {
+       "color": "#66629a",
+       "share": 0.05
+      },
+      {
+       "color": "#f0bb3a",
+       "share": 0.03
+      },
+      {
+       "color": "#f3f1ea",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#0a0640",
+      "hsl": {
+       "h": 244,
+       "s": 0.83,
+       "l": 0.14
+      },
+      "fg": "#f0bb3a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 6,
+     "radius": 3,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "New thread",
+      "Search ⌘K",
+      "Inbox 4",
+      "Allow once",
+      "Deny"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 1,
+     "hairlineSamples": [
+      "aside.rail 320px"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 4,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.17
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": true,
+     "height": 1024,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "plus jakarta sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 1024,
+    "margins": {
+     "left": 0,
+     "right": 8
+    },
+    "sections": [],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Inbox",
+      "size": 289,
+      "top": 842,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 0,
+      "n": 1
+     },
+     {
+      "x": 18,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 2,
+    "bodySize": 16,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "dark": false,
+    "ground": "#f3f1ea",
+    "sidebar": {
+     "w": 320,
+     "tag": "aside",
+     "links": 30,
+     "share": 0.42
+    },
+    "topbar": {
+     "h": 52
+    },
+    "canvas": {
+     "left": 404,
+     "right": 8
+    },
+    "hero": {
+     "text": "Inbox",
+     "words": 1,
+     "chars": 5,
+     "lines": 1,
+     "size": 289,
+     "vw": 37.6,
+     "font": "Plus Jakarta Sans",
+     "weight": 800,
+     "tracking": -0.05,
+     "leading": 0.8,
+     "top": 842,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 0,
+     "firstScreen": 0,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 0,
+     "radii": [],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 3,
+     "tabularShare": 0,
+     "kpiMax": 11.5
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.05,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      19,
+      34,
+      289
+     ]
+    },
+    "title": {
+     "text": "Inbox",
+     "size": 289,
+     "top": 842
+    },
+    "colourShare": 0.873
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 1,
+   "filled": [
+    0.95
+   ],
+   "motion": {
+    "elements": 12,
+    "css": 12,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 844,
+     "screens": 1,
+     "words": 100,
+     "img": 0,
+     "video": 0,
+     "canvas": 1,
+     "svg": 23,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Inbox",
+     "words": 1,
+     "chars": 5,
+     "lines": 1,
+     "size": 147,
+     "vw": 37.6,
+     "font": "Plus Jakarta Sans",
+     "weight": 800,
+     "tracking": -0.06,
+     "leading": 0.8,
+     "top": 752,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": {
+     "text": "Inbox",
+     "words": 1,
+     "lines": 1,
+     "size": 146.6,
+     "font": "Plus Jakarta Sans"
+    },
+    "headings": [
+     {
+      "text": "Wants to restart the gateway",
+      "words": 5,
+      "chars": 28,
+      "lines": 3,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Plus Jakarta Sans",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 318,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Inbox",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 146.6,
+      "vw": 37.6,
+      "font": "Plus Jakarta Sans",
+      "weight": 800,
+      "tracking": -0.055,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 752,
+      "tag": "h1",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 3,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 5,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Plus Jakarta Sans",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      19,
+      22,
+      147
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Plus Jakarta Sans",
+      "size": 15,
+      "leading": 1.5,
+      "weight": 500,
+      "tracking": 0,
+      "contrast": 10.7
+     },
+     "measureChars": 20,
+     "max": {
+      "size": 146.6,
+      "vw": 37.6,
+      "font": "Plus Jakarta Sans",
+      "text": "Inbox"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.2,
+     "smallText": 4
+    },
+    "eyebrows": [
+     {
+      "text": "1 of 7 waiting",
+      "above": "Inbox",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 12.5,
+      "top": 679
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f3f1ea",
+     "bodyBgHsl": {
+      "h": 47,
+      "s": 0.27,
+      "l": 0.94
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f3f1ea",
+       "top": 0,
+       "hsl": {
+        "h": 47,
+        "s": 0.27,
+        "l": 0.94
+       }
+      },
+      {
+       "color": "#f0bb3a",
+       "top": 52,
+       "hsl": {
+        "h": 43,
+        "s": 0.86,
+        "l": 0.58
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0a0640",
+       "share": 0.74
+      },
+      {
+       "color": "#4a4680",
+       "share": 0.15
+      },
+      {
+       "color": "#66629a",
+       "share": 0.05
+      },
+      {
+       "color": "#f0bb3a",
+       "share": 0.03
+      },
+      {
+       "color": "#f3f1ea",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#0a0640",
+      "hsl": {
+       "h": 244,
+       "s": 0.83,
+       "l": 0.14
+      },
+      "fg": "#f0bb3a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 6,
+     "radius": 3,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "New thread",
+      "Search ⌘K",
+      "Inbox 4",
+      "Allow once",
+      "Deny"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 1,
+     "hairlineSamples": [
+      "aside.rail 320px"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 4,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 0.13
+     }
+    ],
+    "nav": {
+     "links": 0,
+     "fixed": true,
+     "height": 844,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "plus jakarta sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 844,
+    "margins": {
+     "left": 0,
+     "right": 8
+    },
+    "sections": [],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Inbox",
+      "size": 147,
+      "top": 752,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 0,
+      "n": 1
+     },
+     {
+      "x": 18,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 2,
+    "bodySize": 15,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "dark": false,
+    "ground": "#f3f1ea",
+    "sidebar": null,
+    "topbar": {
+     "h": 52
+    },
+    "canvas": {
+     "left": 8,
+     "right": 8
+    },
+    "hero": {
+     "text": "Inbox",
+     "words": 1,
+     "chars": 5,
+     "lines": 1,
+     "size": 147,
+     "vw": 37.6,
+     "font": "Plus Jakarta Sans",
+     "weight": 800,
+     "tracking": -0.06,
+     "leading": 0.8,
+     "top": 752,
+     "tag": "h1",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 0,
+     "firstScreen": 0,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 0,
+     "radii": [],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 0,
+     "hues": 0,
+     "samples": []
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 3,
+     "tabularShare": 0,
+     "kpiMax": 11.5
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.05,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      19,
+      22,
+      147
+     ]
+    },
+    "title": {
+     "text": "Inbox",
+     "size": 147,
+     "top": 752
+    },
+    "colourShare": 0.85
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (page background #f3f1ea, section #f3f1ea, text #f3f1ea).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/home/ubuntu/hermes-maintenance/ui-redesign/.taste-skill/inspect-_i-inbox/desktop-fold.jpg",
+   "pages": [
+    "/home/ubuntu/hermes-maintenance/ui-redesign/.taste-skill/inspect-_i-inbox/desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/home/ubuntu/hermes-maintenance/ui-redesign/.taste-skill/inspect-_i-inbox/tablet-fold.jpg",
+   "pages": [
+    "/home/ubuntu/hermes-maintenance/ui-redesign/.taste-skill/inspect-_i-inbox/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/home/ubuntu/hermes-maintenance/ui-redesign/.taste-skill/inspect-_i-inbox/mobile-fold.jpg",
+   "pages": [
+    "/home/ubuntu/hermes-maintenance/ui-redesign/.taste-skill/inspect-_i-inbox/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

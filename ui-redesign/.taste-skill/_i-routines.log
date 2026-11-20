@@ -1,0 +1,26 @@
+TASTESKILL · INSPECT   prototype/_i-routines.html
+
+MEASURED (first viewport listed)
+  hero headline   "Routines"  1 words · 1 line(s) · 334px (23.2vw) · Plus Jakarta Sans 800 · tracking -0.06em · leading 0.8
+  @768px          1 line(s) · 188px
+  @390px          1 line(s) · 95px
+  typefaces       Plus Jakarta Sans 100%
+  sizes in use    11 / 12 / 13 / 14 / 15 / 18 / 19 / 43 / 334 px
+  colour          page #f3f1ea · sections #f3f1ea #5cc7b4 · button #06103a
+  page            1 screens · 98 words · 0 images · hero media 24% canvas
+  headings        2 · longest 2 line(s) · median 5 words
+
+WARN — fix, or be able to defend
+  [palette-cream] @1440px (+768, 390)  Yellow-cream background (page background #f3f1ea, section #f3f1ea).
+      → Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.
+
+LOOK AT THE RENDER — open these with your image viewer / Read tool before saying anything about quality:
+  desktop 1440px  .taste-skill/inspect-_i-routines/desktop-fold.jpg
+                  .taste-skill/inspect-_i-routines/desktop-page-01.jpg
+  tablet 768px    .taste-skill/inspect-_i-routines/tablet-fold.jpg
+                  .taste-skill/inspect-_i-routines/tablet-page-01.jpg
+  mobile 390px    .taste-skill/inspect-_i-routines/mobile-fold.jpg
+                  .taste-skill/inspect-_i-routines/mobile-page-01.jpg
+
+report: .taste-skill/inspect-_i-routines/report.json
+RESULT: 0 FAIL, 1 WARN — measurements pass. Passing the meter is the floor, not the grade: score the screenshots with references/critique.md.

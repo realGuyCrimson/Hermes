@@ -1,0 +1,1607 @@
+{
+ "url": "prototype/index.html",
+ "at": "2026-11-19T22:43:54.154Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 1,
+   "filled": [
+    0.96
+   ],
+   "motion": {
+    "elements": 16,
+    "css": 16,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 900,
+     "screens": 1,
+     "words": 324,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 41,
+     "sections": 0,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "I read how the dashboard works today. Its chat tab is the real TUI inside xterm.js, which is why it feels like a terminal. The desktop app already speaks the same JSON-RPC to the gateway with a native",
+     "words": 49,
+     "chars": 275,
+     "lines": 4,
+     "size": 16,
+     "vw": 1.1,
+     "font": "Plus Jakarta Sans",
+     "weight": 700,
+     "tracking": 0,
+     "leading": 1.65,
+     "top": 253,
+     "tag": "p",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": null,
+    "headings": [
+     {
+      "text": "Hermes",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 316.8,
+      "vw": 22,
+      "font": "Plus Jakarta Sans",
+      "weight": 800,
+      "tracking": -0.055,
+      "leading": 0.78,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.76,
+      "top": 704,
+      "tag": "div",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 1,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Plus Jakarta Sans",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      19,
+      317
+     ],
+     "sizeCount": 8,
+     "notLoaded": [],
+     "body": {
+      "font": "Plus Jakarta Sans",
+      "size": 16,
+      "leading": 1.65,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 18.1
+     },
+     "measureChars": 79,
+     "max": {
+      "size": 316.8,
+      "vw": 22,
+      "font": "Plus Jakarta Sans",
+      "text": "Hermes"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.1,
+     "smallText": 7
+    },
+    "eyebrows": [
+     {
+      "text": "Verify last night’s backup zip",
+      "above": "Hermes",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13.5,
+      "top": 673
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f7f0dd",
+     "bodyBgHsl": {
+      "h": 44,
+      "s": 0.62,
+      "l": 0.92
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f7f0dd",
+       "top": 0,
+       "hsl": {
+        "h": 44,
+        "s": 0.62,
+        "l": 0.92
+       }
+      },
+      {
+       "color": "#fffaf0",
+       "top": 0,
+       "hsl": {
+        "h": 40,
+        "s": 1,
+        "l": 0.97
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0a0640",
+       "share": 0.66
+      },
+      {
+       "color": "#5b5791",
+       "share": 0.21
+      },
+      {
+       "color": "#837fb2",
+       "share": 0.12
+      },
+      {
+       "color": "#f7f0dd",
+       "share": 0.01
+      },
+      {
+       "color": "#efe5c8",
+       "share": 0
+      }
+     ],
+     "button": {
+      "bg": "#efe5c8",
+      "hsl": {
+       "h": 45,
+       "s": 0.55,
+       "l": 0.86
+      },
+      "fg": "#0a0640"
+     },
+     "lowContrast": [
+      {
+       "text": "Yesterday",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 11.5,
+       "fg": "#837fb2",
+       "bg": "#f7f0dd"
+      },
+      {
+       "text": "read 9 files · searched 4 times · ran 3 ",
+       "ratio": 3.6,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#837fb2",
+       "bg": "#fffaf0"
+      },
+      {
+       "text": "0.4s",
+       "ratio": 3.6,
+       "need": 4.5,
+       "size": 11.5,
+       "fg": "#837fb2",
+       "bg": "#fffaf0"
+      },
+      {
+       "text": "0.5s",
+       "ratio": 3.6,
+       "need": 4.5,
+       "size": 11.5,
+       "fg": "#837fb2",
+       "bg": "#fffaf0"
+      },
+      {
+       "text": "1.1s",
+       "ratio": 3.6,
+       "need": 4.5,
+       "size": 11.5,
+       "fg": "#837fb2",
+       "bg": "#fffaf0"
+      },
+      {
+       "text": "3.2s",
+       "ratio": 3.6,
+       "need": 4.5,
+       "size": 11.5,
+       "fg": "#837fb2",
+       "bg": "#fffaf0"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 2,
+     "inHero": 2,
+     "radius": 3,
+     "height": 34,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Redesign the web UI now",
+      "Details"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 274,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "plus jakarta sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 900,
+    "margins": {
+     "left": 10,
+     "right": 58
+    },
+    "sections": [
+     {
+      "sel": "div.ghostw",
+      "tag": "div",
+      "top": 704,
+      "height": 247,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.scroll",
+      "tag": "div",
+      "top": 64,
+      "height": 729,
+      "words": 147,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 442,
+      "right": 373,
+      "textLeft": 442,
+      "textRight": 373,
+      "fullBleed": false,
+      "footer": true,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 442,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 2,
+    "bodySize": 16,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0.14,
+    "voidBox": {
+     "x": 1200,
+     "y": 120,
+     "w": 240,
+     "h": 780
+    }
+   },
+   "app": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "dark": false,
+    "ground": "#f7f0dd",
+    "sidebar": {
+     "w": 72,
+     "tag": "aside",
+     "links": 30,
+     "share": 0.05
+    },
+    "topbar": {
+     "h": 64
+    },
+    "canvas": {
+     "left": 26,
+     "right": 58
+    },
+    "hero": {
+     "text": "I read how the dashboard works today. Its chat tab is the real TUI inside xterm.js, which is why it feels like a terminal. The desktop app already speaks the same JSON-RPC to the gateway with a native",
+     "words": 49,
+     "chars": 275,
+     "lines": 4,
+     "size": 16,
+     "vw": 1.1,
+     "font": "Plus Jakarta Sans",
+     "weight": 700,
+     "tracking": 0,
+     "leading": 1.65,
+     "top": 253,
+     "tag": "p",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 1,
+     "firstScreen": 1,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 1,
+     "radii": [
+      [
+       0,
+       1
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 1,
+     "hues": 1,
+     "samples": [
+      {
+       "hue": 244,
+       "size": 32,
+       "radius": "50%"
+      }
+     ]
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 11,
+     "tabularShare": 0.55,
+     "kpiMax": 12.5
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.11,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      19,
+      317
+     ]
+    },
+    "title": null,
+    "colourShare": 0.001
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 1,
+   "filled": [
+    0.92
+   ],
+   "motion": {
+    "elements": 16,
+    "css": 16,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 1024,
+     "screens": 1,
+     "words": 324,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 41,
+     "sections": 0,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "I read how the dashboard works today. Its chat tab is the real TUI inside xterm.js, which is why it feels like a terminal. The desktop app already speaks the same JSON-RPC to the gateway with a native",
+     "words": 49,
+     "chars": 275,
+     "lines": 4,
+     "size": 16,
+     "vw": 2.1,
+     "font": "Plus Jakarta Sans",
+     "weight": 700,
+     "tracking": 0,
+     "leading": 1.65,
+     "top": 287,
+     "tag": "p",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": null,
+    "headings": [
+     {
+      "text": "Hermes",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 230.4,
+      "vw": 30,
+      "font": "Plus Jakarta Sans",
+      "weight": 800,
+      "tracking": -0.055,
+      "leading": 0.78,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 1.04,
+      "top": 872,
+      "tag": "div",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 1,
+     "maxLines": 1,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": null,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Plus Jakarta Sans",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      19,
+      230
+     ],
+     "sizeCount": 8,
+     "notLoaded": [],
+     "body": {
+      "font": "Plus Jakarta Sans",
+      "size": 16,
+      "leading": 1.65,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 18.1
+     },
+     "measureChars": 82,
+     "max": {
+      "size": 230.4,
+      "vw": 30,
+      "font": "Plus Jakarta Sans",
+      "text": "Hermes"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.11,
+     "smallText": 8
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f7f0dd",
+     "bodyBgHsl": {
+      "h": 44,
+      "s": 0.62,
+      "l": 0.92
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f7f0dd",
+       "top": 0,
+       "hsl": {
+        "h": 44,
+        "s": 0.62,
+        "l": 0.92
+       }
+      },
+      {
+       "color": "#fffaf0",
+       "top": 52,
+       "hsl": {
+        "h": 40,
+        "s": 1,
+        "l": 0.97
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0a0640",
+       "share": 0.66
+      },
+      {
+       "color": "#5b5791",
+       "share": 0.21
+      },
+      {
+       "color": "#837fb2",
+       "share": 0.12
+      },
+      {
+       "color": "#f7f0dd",
+       "share": 0.01
+      },
+      {
+       "color": "#efe5c8",
+       "share": 0
+      }
+     ],
+     "button": {
+      "bg": "#efe5c8",
+      "hsl": {
+       "h": 45,
+       "s": 0.55,
+       "l": 0.86
+      },
+      "fg": "#0a0640"
+     },
+     "lowContrast": [
+      {
+       "text": "Yesterday",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 11.5,
+       "fg": "#837fb2",
+       "bg": "#f7f0dd"
+      },
+      {
+       "text": "read 9 files · searched 4 times · ran 3 ",
+       "ratio": 3.6,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#837fb2",
+       "bg": "#fffaf0"
+      },
+      {
+       "text": "0.4s",
+       "ratio": 3.6,
+       "need": 4.5,
+       "size": 11.5,
+       "fg": "#837fb2",
+       "bg": "#fffaf0"
+      },
+      {
+       "text": "0.5s",
+       "ratio": 3.6,
+       "need": 4.5,
+       "size": 11.5,
+       "fg": "#837fb2",
+       "bg": "#fffaf0"
+      },
+      {
+       "text": "1.1s",
+       "ratio": 3.6,
+       "need": 4.5,
+       "size": 11.5,
+       "fg": "#837fb2",
+       "bg": "#fffaf0"
+      },
+      {
+       "text": "3.2s",
+       "ratio": 3.6,
+       "need": 4.5,
+       "size": 11.5,
+       "fg": "#837fb2",
+       "bg": "#fffaf0"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 7,
+     "inHero": 7,
+     "radius": 3,
+     "height": 44,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "New thread",
+      "Search ⌘K",
+      "Threads",
+      "Redesign the web UI now",
+      "Plan 2 of 5"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 1,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 3,
+     "hairlineSamples": [
+      "aside.rail 320px",
+      "span.cl 171px rule",
+      "span.cl 171px rule"
+     ],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 0,
+     "fixed": true,
+     "height": 1024,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "plus jakarta sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 1024,
+    "margins": {
+     "left": 14,
+     "right": 14
+    },
+    "sections": [
+     {
+      "sel": "div.ghostw",
+      "tag": "div",
+      "top": 872,
+      "height": 180,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.scroll",
+      "tag": "div",
+      "top": 108,
+      "height": 815,
+      "words": 147,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 58,
+      "right": 62,
+      "textLeft": 58,
+      "textRight": 62,
+      "fullBleed": false,
+      "footer": true,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [],
+    "edgeText": [
+     {
+      "text": "Redesign the web UI",
+      "side": "left",
+      "px": 14
+     }
+    ],
+    "edges": [
+     {
+      "x": 58,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 2,
+    "bodySize": 16,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "dark": false,
+    "ground": "#f7f0dd",
+    "sidebar": {
+     "w": 320,
+     "tag": "aside",
+     "links": 30,
+     "share": 0.42
+    },
+    "topbar": {
+     "h": 52
+    },
+    "canvas": {
+     "left": 7,
+     "right": 8
+    },
+    "hero": {
+     "text": "I read how the dashboard works today. Its chat tab is the real TUI inside xterm.js, which is why it feels like a terminal. The desktop app already speaks the same JSON-RPC to the gateway with a native",
+     "words": 49,
+     "chars": 275,
+     "lines": 4,
+     "size": 16,
+     "vw": 2.1,
+     "font": "Plus Jakarta Sans",
+     "weight": 700,
+     "tracking": 0,
+     "leading": 1.65,
+     "top": 287,
+     "tag": "p",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 1,
+     "firstScreen": 1,
+     "ragged": [],
+     "voids": []
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 1,
+     "radii": [
+      [
+       0,
+       1
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 1,
+     "softShadows": 0,
+     "shadowSamples": [
+      "rgba(6, 3, 56, 0.5) 0px 0px 70px 0px"
+     ],
+     "glass": 0
+    },
+    "chips": {
+     "count": 1,
+     "hues": 1,
+     "samples": [
+      {
+       "hue": 244,
+       "size": 32,
+       "radius": "50%"
+      }
+     ]
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 11,
+     "tabularShare": 0.55,
+     "kpiMax": 12.5
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.12,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      19,
+      230
+     ]
+    },
+    "title": null,
+    "colourShare": 0.001
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.81,
+    0.81,
+    0.81
+   ],
+   "motion": {
+    "elements": 16,
+    "css": 16,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 980,
+     "h": 2121
+    },
+    "page": {
+     "height": 2121,
+     "screens": 1,
+     "words": 324,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 41,
+     "sections": 0,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "I read how the dashboard works today. Its chat tab is the real TUI inside xterm.js, which is why it feels like a terminal. The desktop app already speaks the same JSON-RPC to the gateway with a native",
+     "words": 49,
+     "chars": 275,
+     "lines": 6,
+     "size": 28,
+     "vw": 2.9,
+     "font": "Plus Jakarta Sans",
+     "weight": 700,
+     "tracking": 0,
+     "leading": 1.65,
+     "top": 310,
+     "tag": "p",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "h1": null,
+    "headings": [
+     {
+      "text": "The new design makes threads the unit of work, shows the agent as a persistent teammate with presence, and moves everything else into calm spaces.",
+      "words": 25,
+      "chars": 146,
+      "lines": 4,
+      "size": 28,
+      "vw": 2.9,
+      "font": "Plus Jakarta Sans",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.64,
+      "top": 600,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Everything is wired to sample data so the interaction model can be judged now. Next I will check each view in a real browser at 1440, 768 and 390px.",
+      "words": 29,
+      "chars": 148,
+      "lines": 4,
+      "size": 28,
+      "vw": 2.9,
+      "font": "Plus Jakarta Sans",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1.65,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.64,
+      "top": 884,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Hermes",
+      "words": 1,
+      "chars": 6,
+      "lines": 1,
+      "size": 215.6,
+      "vw": 22,
+      "font": "Plus Jakarta Sans",
+      "weight": 800,
+      "tracking": -0.055,
+      "leading": 0.78,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.76,
+      "top": 1986,
+      "tag": "div",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 3,
+     "maxLines": 4,
+     "over2Lines": 0,
+     "statements": 2,
+     "centered": 0,
+     "medianWords": 29,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Plus Jakarta Sans",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      19,
+      20,
+      21,
+      28,
+      216
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Plus Jakarta Sans",
+      "size": 20.2,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 15
+     },
+     "measureChars": 52,
+     "max": {
+      "size": 215.6,
+      "vw": 22,
+      "font": "Plus Jakarta Sans",
+      "text": "Hermes"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.1,
+     "smallText": 6
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f7f0dd",
+     "bodyBgHsl": {
+      "h": 44,
+      "s": 0.62,
+      "l": 0.92
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f7f0dd",
+       "top": 0,
+       "hsl": {
+        "h": 44,
+        "s": 0.62,
+        "l": 0.92
+       }
+      },
+      {
+       "color": "#fffaf0",
+       "top": 0,
+       "hsl": {
+        "h": 40,
+        "s": 1,
+        "l": 0.97
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#0a0640",
+       "share": 0.66
+      },
+      {
+       "color": "#5b5791",
+       "share": 0.21
+      },
+      {
+       "color": "#837fb2",
+       "share": 0.12
+      },
+      {
+       "color": "#f7f0dd",
+       "share": 0.01
+      },
+      {
+       "color": "#efe5c8",
+       "share": 0
+      }
+     ],
+     "button": {
+      "bg": "#efe5c8",
+      "hsl": {
+       "h": 45,
+       "s": 0.55,
+       "l": 0.86
+      },
+      "fg": "#0a0640"
+     },
+     "lowContrast": [
+      {
+       "text": "Yesterday",
+       "ratio": 3.3,
+       "need": 4.5,
+       "size": 11.5,
+       "fg": "#837fb2",
+       "bg": "#f7f0dd"
+      },
+      {
+       "text": "read 9 files · searched 4 times · ran 3 ",
+       "ratio": 3.6,
+       "need": 4.5,
+       "size": 21,
+       "fg": "#837fb2",
+       "bg": "#fffaf0"
+      },
+      {
+       "text": "0.4s",
+       "ratio": 3.6,
+       "need": 4.5,
+       "size": 11.5,
+       "fg": "#837fb2",
+       "bg": "#fffaf0"
+      },
+      {
+       "text": "0.5s",
+       "ratio": 3.6,
+       "need": 4.5,
+       "size": 11.5,
+       "fg": "#837fb2",
+       "bg": "#fffaf0"
+      },
+      {
+       "text": "1.1s",
+       "ratio": 3.6,
+       "need": 4.5,
+       "size": 11.5,
+       "fg": "#837fb2",
+       "bg": "#fffaf0"
+      },
+      {
+       "text": "3.2s",
+       "ratio": 3.6,
+       "need": 4.5,
+       "size": 11.5,
+       "fg": "#837fb2",
+       "bg": "#fffaf0"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 2,
+     "inHero": 2,
+     "radius": 3,
+     "height": 34,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Redesign the web UI now",
+      "Details"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 1,
+     "boxRadius": 6,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 274,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "plus jakarta sans"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 980,
+     "h": 2121
+    },
+    "pageH": 2121,
+    "margins": {
+     "left": 10,
+     "right": 58
+    },
+    "sections": [
+     {
+      "sel": "div.ghostw",
+      "tag": "div",
+      "top": 1986,
+      "height": 168,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "div.scroll",
+      "tag": "div",
+      "top": 72,
+      "height": 1935,
+      "words": 147,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 212,
+      "right": 142,
+      "textLeft": 212,
+      "textRight": 142,
+      "fullBleed": false,
+      "footer": true,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 1064,
+      "height": 868
+     }
+    ],
+    "h1s": [],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 212,
+      "n": 2
+     }
+    ],
+    "leftBlocks": 2,
+    "bodySize": 28,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": {
+    "viewport": {
+     "w": 980,
+     "h": 2121
+    },
+    "dark": false,
+    "ground": "#f7f0dd",
+    "sidebar": {
+     "w": 72,
+     "tag": "aside",
+     "links": 30,
+     "share": 0.07
+    },
+    "topbar": {
+     "h": 72
+    },
+    "canvas": {
+     "left": 26,
+     "right": 58
+    },
+    "hero": {
+     "text": "I read how the dashboard works today. Its chat tab is the real TUI inside xterm.js, which is why it feels like a terminal. The desktop app already speaks the same JSON-RPC to the gateway with a native",
+     "words": 49,
+     "chars": 275,
+     "lines": 6,
+     "size": 28,
+     "vw": 2.9,
+     "font": "Plus Jakarta Sans",
+     "weight": 700,
+     "tracking": 0,
+     "leading": 1.65,
+     "top": 310,
+     "tag": "p",
+     "kind": "heading",
+     "align": "left",
+     "position": "left"
+    },
+    "charts": 0,
+    "layout": {
+     "panels": 1,
+     "firstScreen": 1,
+     "ragged": [],
+     "voids": [
+      {
+       "gap": 872,
+       "at": 1062,
+       "panel": "Redesign the web UI"
+      }
+     ]
+    },
+    "tiles": 0,
+    "panels": {
+     "count": 2,
+     "radii": [
+      [
+       0,
+       1
+      ],
+      [
+       6,
+       1
+      ]
+     ],
+     "heavyBorders": 0,
+     "borderSamples": [],
+     "heavyShadows": 0,
+     "softShadows": 0,
+     "shadowSamples": [],
+     "glass": 0
+    },
+    "chips": {
+     "count": 1,
+     "hues": 1,
+     "samples": [
+      {
+       "hue": 244,
+       "size": 44,
+       "radius": "50%"
+      }
+     ]
+    },
+    "numbers": {
+     "cells": 0,
+     "leftAligned": 0,
+     "figures": 11,
+     "tabularShare": 0.55,
+     "kpiMax": 12.5
+    },
+    "rows": null,
+    "chartHues": 0,
+    "placeholders": [],
+    "type": {
+     "under13": 0.09,
+     "tiny": 0,
+     "tinySamples": [],
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      19,
+      20,
+      21,
+      28,
+      216
+     ]
+    },
+    "title": null,
+    "colourShare": 0
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (page background #f7f0dd, section #f7f0dd, section #fffaf0).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "contrast",
+   "width": 1440,
+   "message": "Low-contrast text: \"Yesterday\" 3.3:1 needs 4.5:1; \"read 9 files · searched 4 times · ran 3 \" 3.6:1 needs 4.5:1; \"0.4s\" 3.6:1 needs 4.5:1; \"0.5s\" 3.6:1 needs 4.5:1",
+   "fix": "Darken or lighten the text colour.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "font-not-dealt",
+   "width": 1440,
+   "message": "The sheet dealt General Sans and General Sans, but the page renders Plus Jakarta Sans.",
+   "fix": "Load the dealt face (the link on the sheet) and put it first in font-family. A build that falls back to a default face lands on the default look."
+  },
+  {
+   "level": "FAIL",
+   "id": "no-title",
+   "width": 1440,
+   "message": "The screen has no h1.",
+   "fix": "Name the screen in an h1 at the top of the canvas (18–28px): \"Overview\", \"Payouts\", the project's name.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "edge-text",
+   "width": 768,
+   "message": "1 text block(s) sit within 16px of the screen edge: \"Redesign the web UI\" (14px from the left)",
+   "fix": "Keep text inside the page margin (16–32px or more). Only display type deliberately bled past the edge may touch it."
+  },
+  {
+   "level": "FAIL",
+   "id": "heavy-shadow",
+   "width": 768,
+   "message": "1 panel shadow(s) heavy enough to read as floating: rgba(6, 3, 56, 0.5) 0px 0px 70px 0px",
+   "fix": "Panels sit on the ground: separate them with a fill one step from the ground or a quiet 1px border. A shadow, if any, is under 8% black with a small blur. Real overlays (menus, dialogs, popovers) may float."
+  },
+  {
+   "level": "FAIL",
+   "id": "covered-text",
+   "width": 768,
+   "message": "Large text lies under another element at some scroll position: \"Hermes\" (screen 1, 63% hidden)",
+   "fix": "Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 390,
+   "message": "2 headline(s) wrap past two lines at 390px: \"The new design makes threads the unit of work, s\" → 4 lines (25 words, 28px, a paragraph set above 24px); \"Everything is wired to sample data so the intera\" → 4 lines (29 words, 28px, a paragraph set above 24px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/home/ubuntu/hermes-maintenance/ui-redesign/.taste-skill/inspect-home/desktop-fold.jpg",
+   "pages": [
+    "/home/ubuntu/hermes-maintenance/ui-redesign/.taste-skill/inspect-home/desktop-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/home/ubuntu/hermes-maintenance/ui-redesign/.taste-skill/inspect-home/tablet-fold.jpg",
+   "pages": [
+    "/home/ubuntu/hermes-maintenance/ui-redesign/.taste-skill/inspect-home/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/home/ubuntu/hermes-maintenance/ui-redesign/.taste-skill/inspect-home/mobile-fold.jpg",
+   "pages": [
+    "/home/ubuntu/hermes-maintenance/ui-redesign/.taste-skill/inspect-home/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}
